@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Mon profil - Job Board</title>
+</head>
+<body class="body">
+
+  <header class="header">
+    <h1>Mon profil</h1>
+    <div>
+      <a href="index.html">Voir le site</a>
+      <button id="btn-logout" type="button">Déconnexion</button>
+    </div>
+  </header>
+
+  <p id="profil-message"></p>
+
+  <!-- Visible uniquement pour une entreprise -->
+  <main id="espace-entreprise" style="display: none;">
+    <h2 id="nom-entreprise"></h2>
+
+    <section>
+      <h3>Publier une annonce</h3>
+      <form id="form-annonce">
+        <label for="a-title">Titre du poste</label><br>
+        <input type="text" id="a-title" required><br>
+
+        <label for="a-description">Description</label><br>
+        <textarea id="a-description" required></textarea><br>
+
+        <label for="a-place">Lieu</label><br>
+        <input type="text" id="a-place" required><br>
+
+        <label for="a-contract">Contrat</label><br>
+        <select id="a-contract" required></select><br>
+
+        <label for="a-categorie">Catégorie</label><br>
+        <select id="a-categorie" required></select><br>
+
+        <label for="a-salary">Salaire</label><br>
+        <input type="number" id="a-salary" min="0"><br>
+
+        <p id="a-error" style="color: red;"></p>
+        <button type="submit">Publier</button>
+      </form>
+    </section>
+
+    <section>
+      <h3>Mes annonces (<span id="compteur-annonces">0</span>)</h3>
+      <div id="liste-annonces"></div>
+    </section>
+  </main>
+  <!-- Visible uniquement pour un particulier -->
+<main id="espace-particulier" style="display: none;">
+  <section>
+    <h3>Mes candidatures (<span id="compteur-candidatures">0</span>)</h3>
+    <div id="liste-candidatures"></div>
+  </section>
+</main>
+
+  <script type="module" src="profil.js"></script>
+</body>
+</html>

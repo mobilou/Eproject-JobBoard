@@ -1,0 +1,35 @@
+:root { 
+  --bleu: #305f94; --clair: #f4f7fb; 
+}
+.body { 
+  margin: 0; font-family: 'Times New Roman', Times, serif; background: var(--clair); 
+}
+.header { 
+  background: var(--bleu); color: #fff; padding: 16px; text-align: center; 
+}
+.main {
+  text-align: center;
+}
+.container { 
+  max-width: 800px; margin: 24px auto; padding: 0 16px; 
+}
+.card { 
+  background: #fff; border-radius: 10px; padding: 16px; margin-bottom: 16px; 
+}
+.btn { 
+  background: var(--bleu); color: #fff; border: 0; padding: 10px 18px; border-radius: 6px; cursor: pointer; 
+}
+
+
+.header {
+  position: relative; /* sert de repère pour placer le menu à droite */
+}
+
+#user-menu-container {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  flex-direction: column;  /* empile les éléments verticalement */
+  align-items: flex-end;   /* les aligne tout à droite */
+  gap: 6px;
+}

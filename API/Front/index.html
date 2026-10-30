@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Job Board</title>
+</head>
+
+<body class="body">
+
+  <header class="header">
+    <h1>Job Board</h1>
+
+    <!-- Zone affichée uniquement si l'utilisateur est DÉCONNECTÉ -->
+    <div id="auth-buttons-container">
+      <button onclick="document.getElementById('maPopup').showModal()">Connexion</button>
+      <button onclick="document.getElementById('Popup').showModal()">Inscription</button>
+    </div>
+
+    <!-- Zone affichée uniquement si l'utilisateur est CONNECTÉ -->
+    <div id="user-menu-container" style="display: none;">
+      <span id="user-greeting">Bienvenue !</span>
+      <button id="btn-profile" type="button">Profil</button>
+      <button id="btn-logout" type="button">Déconnexion</button>
+    </div>
+
+    <form id="form-recherche">
+      <div class="join">
+        <input id="recherche-q" class="input join-item" placeholder="Rechercher (titre, entreprise, lieu)" />
+
+        <select id="recherche-contrat" class="select join-item">
+          <option value="" selected>Tous les contrats</option>
+          <option value="CDI">CDI</option>
+          <option value="CDD">CDD</option>
+          <option value="STAGE">Stage</option>
+          <option value="ALTERNANCE">Alternance</option>
+        </select>
+
+        <select id="recherche-categorie" class="select join-item">
+          <option value="" selected>Toutes les catégories</option>
+          <option value="agriculture">Agriculture</option>
+          <option value="artisanat">Artisanat</option>
+          <option value="batiment">Bâtiment</option>
+          <option value="commerce">Commerce</option>
+          <option value="finance">Finance</option>
+          <option value="marketing">Marketing</option>
+          <option value="droit">Droit</option>
+          <option value="education">Éducation</option>
+          <option value="medical">Médical</option>
+          <option value="transport">Transport</option>
+          <option value="alimentaire">Alimentaire</option>
+          <option value="informatique">Informatique</option>
+        </select>
+
+        <button type="submit" class="btn">Rechercher</button>
+        <button type="reset" class="btn">Réinitialiser</button>
+      </div>
+    </form>
+  </header>
+
+  <!-- Cartes d'annonces (générées par annonces.js) -->
+  <div id="liste-annonces"></div>
+  <div id="pagination"></div>
+
+  <!-- Dialogue Modale Connexion -->
+  <dialog id="maPopup">
+    <h2>Se connecter</h2>
+    <form id="form-login">
+      <label for="login-email">E-mail</label><br>
+      <input type="email" id="login-email" placeholder="Votre@email.com" required><br>
+      <label for="login-password">Mot de passe</label><br>
+      <input type="password" id="login-password" placeholder="••••••••" required><br>
+      <p id="login-error" style="color: red;"></p>
+      <button type="submit">Se connecter</button>
+      <button type="button" onclick="document.getElementById('maPopup').close()">Fermer</button>
+    </form>
+  </dialog>
+
+  <!-- Dialogue Modale Inscription -->
+  <dialog id="Popup">
+    <h2>Inscrire en tant que particulier</h2>
+    <form id="form-particulier">
+      <label for="p-nom">Nom</label><br>
+      <input type="text" id="p-nom" placeholder="Votre nom" required><br>
+      <label for="p-prenom">Prénom</label><br>
+      <input type="text" id="p-prenom" placeholder="Votre prénom" required><br>
+      <label for="p-email">E-mail</label><br>
+      <input type="email" id="p-email" placeholder="Votre@email.com" required><br>
+      <label for="p-password">Mot de passe</label><br>
+      <input type="password" id="p-password" placeholder="••••••••" required><br>
+      <label for="p-confpassword">Confirmation du mot de passe</label><br>
+      <input type="password" id="p-confpassword" placeholder="••••••••" required><br>
+      <p id="p-error" style="color: red;"></p>
+      <button type="submit">Inscription</button>
+    </form>
+
+    <h2>Inscrire en tant qu'entreprise</h2>
+    <form id="form-entreprise">
+      <label for="e-nom">Nom de l'entreprise</label><br>
+      <input type="text" id="e-nom" placeholder="Nom de votre entreprise" required><br>
+      <label for="e-ville">Ville</label><br>
+      <input type="text" id="e-ville" placeholder="Votre ville" required><br>
+      <label for="e-email">E-mail</label><br>
+      <input type="email" id="e-email" placeholder="Votre@email.com" required><br>
+      <label for="e-password">Mot de passe</label><br>
+      <input type="password" id="e-password" placeholder="••••••••" required><br>
+      <label for="e-confpassword">Confirmation du mot de passe</label><br>
+      <input type="password" id="e-confpassword" placeholder="••••••••" required><br>
+      <p id="e-error" style="color: red;"></p>
+      <button type="submit">Inscription</button>
+    </form>
+
+    <button type="button" onclick="document.getElementById('Popup').close()">Fermer</button>
+  </dialog>
+  <!-- Dialogue Modale Postuler -->
+  <dialog id="popupPostuler">
+    <h2>Postuler</h2>
+    <p id="postuler-titre"></p>
+    <form id="form-postuler">
+      <label for="postuler-message">Ton message</label><br>
+      <textarea id="postuler-message" required></textarea><br>
+      <p id="postuler-error" style="color: red;"></p>
+      <button type="submit">Envoyer ma candidature</button>
+      <button type="button" onclick="document.getElementById('popupPostuler').close()">Fermer</button>
+    </form>
+  </dialog>
+
+  <script type="module" src="inscription.js"></script>
+  <script type="module" src="annonces.js"></script>
+</body>
+
+</html>

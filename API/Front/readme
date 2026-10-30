@@ -1,0 +1,6 @@
+SQL = Structured Query Language -> communiquer avev les bases de données relationnelles.
+MySQL = système de gestion de bases de données relationnelles (SGBDR) libre
+MySQL Workbench :
+- créer une base de donnée 
+- créer tables (datatype : varchar -> chaîne de caractères)
+- insérer les infos pour chaque table 

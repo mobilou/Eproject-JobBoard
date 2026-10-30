@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <title>Administration - Job Board</title>
+</head>
+<body class="body">
+
+  <header class="header">
+    <h1>Administration</h1>
+    <div>
+      <a href="index.html">Voir le site</a>
+      <button id="btn-logout" type="button">Déconnexion</button>
+    </div>
+  </header>
+
+  <nav id="onglets"></nav>
+
+  <p id="admin-error" style="color: red;"></p>
+
+  <section>
+    <h2><span id="titre-table"></span> (<span id="compteur">0</span>)</h2>
+    <button id="btn-ajouter" type="button">Ajouter</button>
+    <table class="table">
+      <thead><tr id="table-head"></tr></thead>
+      <tbody id="table-body"></tbody>
+    </table>
+  </section>
+
+  <!-- Fenêtre Ajouter / Modifier (remplie par admin.js) -->
+  <dialog id="popupForm">
+    <h2 id="form-titre"></h2>
+    <form id="form-admin">
+      <div id="form-champs"></div>
+      <p id="form-error" style="color: red;"></p>
+      <button type="submit">Enregistrer</button>
+      <button type="button" id="form-annuler">Annuler</button>
+    </form>
+  </dialog>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
